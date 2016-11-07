@@ -12,14 +12,15 @@
 <h:body>
 	<h:form>
 		
-		 NOME : <p:inputText value="#{agenteMB.agente.nome}"/>
+		 NOME : <p:outputLabel value="#{agenteMB.agente.nome}"/>
 		 <br/>
-		 DATA CONTRATAÇÃO : <p:calendar  value="#{agenteMB.agente.dtContratacao}"/>
+		 DATA CONTRATAÇÃO  : <p:outputLabel value="#{agenteMB.agente.dtContratacao}">
+		 <f:convertDateTime type="date" locale="pt_BR" pattern="dd/MM/yyyy"/>
+		 </p:outputLabel>
 		 <br/>
-		 TEMPO DE SERVIÇOS : <p:inputText value="#{agenteMB.agente.tempoServico}"/>
+		 TEMPO DE SERVIÇOS : <p:outputLabel value="#{agenteMB.agente.tempoServico}"/>
 		<br/>
-		<p:commandButton value="Chamar Bean" action="#{agenteMB.passar()}"></p:commandButton>
-
+		
 
 
 	</h:form>

@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 import com.stefanini.model.Denuncia;
 
-public class DenunciaRepository {
+public class DenuncianteRepository {
 
 	@Inject
 	private EntityManager manager;
