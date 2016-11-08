@@ -1,5 +1,6 @@
 package com.stefanini.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -17,7 +18,7 @@ import com.stefanini.service.ProprietarioService;
 
 @SessionScoped
 @ManagedBean(name = "proprietarioMB")
-public class ProprietarioBean {
+public class ProprietarioBean  implements Serializable{
 
 	@Inject
 	private ProprietarioService proprietarioservice;
@@ -52,12 +53,14 @@ public class ProprietarioBean {
 	public void salvar()
 	{
 		System.out.println("tpelefone");
-		proprietarioservice.cadastraTipo(tpelefone);
-		telefonesId.setCpfProprietario(proprietario.getCpfProprietario());
-		telefonesId.setDdd(060);
-		proprietarioservice.cadastraTelefone(telefonesId);
+		//TA CADASTRAndoO O TIPOOOO
+		//proprietarioservice.cadastraTipo(tpelefone);
 		
+		//System.out.println(telefonesId.setCpfProprietario(proprietario.getCpfProprietario()));
+		//telefonesId.setDdd(060);
+		proprietario.setUf("DF");
 		proprietarioservice.incluir(proprietario);
+		proprietarioservice.cadastraTelefone(telefonesId);
 		
 		
 	

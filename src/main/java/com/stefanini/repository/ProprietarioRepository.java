@@ -16,8 +16,8 @@ public class ProprietarioRepository {
 		this.manager.persist(propietario);
 	}
 
-	public void altera(Agente agente) {
-		this.manager.merge(agente);
+	public void altera(Proprietario propietario) {
+		this.manager.merge(propietario);
 	}
 
 	public Agente busca(Integer id) {
@@ -25,7 +25,7 @@ public class ProprietarioRepository {
 	}
 
 	public List<Agente> lista() {
-		return this.manager.createQuery("from denuncia", Agente.class)
+		return this.manager.createQuery("from propietario", Agente.class)
 				.getResultList();
 	}
 

@@ -27,6 +27,7 @@ public class ProprietarioService {
 	
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void incluir(Proprietario propietario){
+    	
     	proprietarioRepository.incluirPropietario(propietario);
     }
     
@@ -46,6 +47,14 @@ public class ProprietarioService {
     public void cadastraTelefone(TelefonesId telefone){
     	tipoTelefonesRepository.CadastraTelefone(telefone);
     }
+
+	public TelefonesId getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(TelefonesId telefone) {
+		this.telefone = telefone;
+	}
     
     
     
