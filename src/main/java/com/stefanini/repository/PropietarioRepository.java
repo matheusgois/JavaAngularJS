@@ -7,13 +7,12 @@ import javax.persistence.EntityManager;
 
 import com.stefanini.model.Propietario;
 
-public class AgenteRepository {
-	
+public class PropietarioRepository {
 	@Inject
 	private EntityManager manager;
 
-	public void incluirAgente(Propietario agente) {
-		this.manager.persist(agente);
+	public void incluirAgente(Propietario propietario) {
+		this.manager.persist(propietario);
 	}
 
 	public void altera(Propietario agente) {
@@ -25,7 +24,7 @@ public class AgenteRepository {
 	}
 
 	public List<Propietario> lista() {
-		return this.manager.createQuery("select c from denuncia c", Propietario.class)
+		return this.manager.createQuery("from denuncia", Propietario.class)
 				.getResultList();
 	}
 

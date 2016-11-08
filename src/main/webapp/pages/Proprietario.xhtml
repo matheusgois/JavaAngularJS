@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+	  <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	  
+	   <p:panel id="panel" header="Cadastro de Proprietarios">
+ 
+		 <p:outputLabel for="nome" value="NOME" /> 
+		 <p:inputText id="nome" value="#{propietarioMB.propietario.nome}" required="true"/>
+		 <br/>
+		 
+		 <p:outputLabel for="cpf" value="CPF :" />
+		 <p:inputText id="cpf" value="#{propietarioMB.propietario.cpfProprietario}" required="true" />
+		 <br/>
+		 
+		 <p:outputLabel for="ende" value="ENDEREÇO : " />
+		 <p:inputText id="ende" value="#{propietarioMB.propietario.endereco}" required="true"/>
+		 <br/>
+		
+		 <p:outputLabel for="bairro" value="BAIRRO : " />
+		 <p:inputText id="bairro" value="#{propietarioMB.propietario.bairro}" required="true"/>
+		 <br/>
+		
+		 <p:outputLabel for="cidade" value="CIDADE : " />
+		 <p:inputText id="cidade" value="#{propietarioMB.propietario.cidade}" required="true"/>
+		 <br/>
+		
+	     <h:selectOneMenu id="estado">
+	     <f:selectItems value="#{propietarioMB.statuses}" />  
+         </h:selectOneMenu>
+         <br/>  
+        
+          <p:selectOneRadio        value="#{propietarioMB.propietario.sexo}">
+            <f:selectItem itemLabel="Masculino" itemValue="M" />
+            <f:selectItem itemLabel="Feminino" itemValue="F" />
+          </p:selectOneRadio>
+		
+		<p:outputLabel for="datanasc" value="DATA DE NASCIMETO : " />
+		 <p:calendar  id="datanasc" value="#{propietarioMB.propietario.dtNascimento}" required="true"/>
+		 <br/>
+            
+         <p:outputLabel for="tipotel" value="TIPE TELEFONE :" />
+         <p:inputMask id="tipotel" value="#{propietarioMB.tpelefone.descricaoTipoTelefone}" />
+		 <br/>  
+		
+		
+		 <p:outputLabel for="tele" value="TELEFONE :" />
+         <p:inputMask id="tele" value="#{propietarioMB.telefonesId.numero}" />
+		 <br/>  
+		
+		<p:commandButton value="Salvar" update="panel" action="#{propietarioMB.salvar()}"  icon="ui-icon-check" />
+		<br/>
+       
+
+</p:panel>
+	</h:form>
+</h:body>
+</html>

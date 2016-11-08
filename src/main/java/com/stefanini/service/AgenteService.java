@@ -5,17 +5,18 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.stefanini.model.Agente;
+import com.stefanini.model.Propietario;
+import com.stefanini.repository.AgenteRepository;
 
 @Stateless
 public class AgenteService {
 	
 	@Inject
-	private AgenteService agenteRepository;
+	private AgenteRepository agenteRepository;
 	
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void incluir(Agente agente){
-    	agenteRepository.incluir(agente);
+    public void incluir(Propietario agente){
+    	agenteRepository.incluirAgente(agente);
     }
 
 }

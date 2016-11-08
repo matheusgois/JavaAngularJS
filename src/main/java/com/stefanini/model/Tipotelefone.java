@@ -18,11 +18,14 @@ import javax.persistence.Table;
 @Table(name = "tipotelefone", catalog = "hackaton")
 public class Tipotelefone implements Serializable {
 
-	/**
-	 * 
-	 */
+
+
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	private Integer idTipoTelefone;
+	
 	private String descricaoTipoTelefone;
 
 	public Tipotelefone() {
@@ -32,8 +35,7 @@ public class Tipotelefone implements Serializable {
 		this.descricaoTipoTelefone = descricaoTipoTelefone;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+
 
 	@Column(name = "idTipoTelefone", unique = true, nullable = false)
 	public Integer getIdTipoTelefone() {

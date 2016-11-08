@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import com.stefanini.model.Agente;
+import com.stefanini.model.Propietario;
 import com.stefanini.service.AgenteService;
 
 @SessionScoped
@@ -18,7 +18,7 @@ public class AgenteBean {
 	private AgenteService agenteService;
 	
 	@Inject
-	private Agente agente;
+	private Propietario agente;
 
 	public void passar() throws IOException {
        
@@ -27,11 +27,14 @@ public class AgenteBean {
 		
 	}
 
-	public Agente getAgente() {
+	public Propietario getAgente() {
+		if(agente ==null){
+			agente = new Propietario();
+		}
 		return agente;
 	}
 
-	public void setAgente(Agente agente) {
+	public void setAgente(Propietario agente) {
 		this.agente = agente;
 	}
 }

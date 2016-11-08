@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "agente", catalog = "hackaton")
-public class Agente implements  Serializable {
+public class Propietario implements  Serializable {
 
 	/**
 	 * 
@@ -30,10 +30,10 @@ public class Agente implements  Serializable {
 	private Date dtContratacao;
 	private Integer tempoServico;
 
-	public Agente() {
+	public Propietario() {
 	}
 
-	public Agente(String nome, Date dtContratacao, Integer tempoServico) {
+	public Propietario(String nome, Date dtContratacao, Integer tempoServico) {
 		this.nome = nome;
 		System.out.println("nome"+nome);
 		this.dtContratacao = dtContratacao;

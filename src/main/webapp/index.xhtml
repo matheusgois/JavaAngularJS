@@ -10,18 +10,56 @@
 <h:head>
 </h:head>
 <h:body>
-	<h:form>
-		
-		 NOME : <p:inputText value="#{agenteMB.agente.nome}"/>
-		 <br/>
-		 DATA CONTRATAÇÃO : <p:calendar  value="#{agenteMB.agente.dtContratacao}"/>
-		 <br/>
-		 TEMPO DE SERVIÇOS : <p:inputText value="#{agenteMB.agente.tempoServico}"/>
-		<br/>
-		<p:commandButton value="Chamar Bean" action="#{agenteMB.passar()}"></p:commandButton>
+<h:form>
+    <p:growl id="messages" showDetail="true"/>
+ 
+    <p:slideMenu style="width:500px">
+        <p:submenu label="Veiculos"          icon="ui-icon-circle-arrow-e">
+        
+            <p:menuitem value="cadastrar"    update="messages" icon="ui-icon-folder-open" />
+            <p:menuitem value="listar"       update="messages" icon="ui-icon-search" />
+            <p:menuitem value="Editar"       update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Excluir"      update="messages" icon="ui-icon-trash" />
+        
+        </p:submenu>
+        
+            <p:submenu label= "Agente"       icon="ui-icon-circle-arrow-e">
+            
+            <p:menuitem value="cadastrar"    update="messages" icon="ui-icon-folder-open" action="/pages/Agente" />
+            <p:menuitem value="listar"       update="messages" icon="ui-icon-search" />
+            <p:menuitem value="Editar"       update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Excluir"      update="messages" icon="ui-icon-trash" />
+        
+        </p:submenu>
+        
+    
+            <p:submenu label= "Proprietario"       icon="ui-icon-circle-arrow-e">
+            
+            <p:menuitem value="cadastrar"          update="messages" icon="ui-icon-folder-open" action="/pages/Proprietario" />
+            <p:menuitem value="listar"       	   update="messages" icon="ui-icon-search" />
+            <p:menuitem value="Editar"       	   update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Excluir"            update="messages" icon="ui-icon-trash" />
+        
+        </p:submenu>
+        
+        
+        <p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin">
+            <p:menuitem value="Delete" ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        <p:submenu label="Navigations" icon="ui-icon-extlink">
+            <p:submenu label="Prime Links">
+                <p:menuitem value="Prime" url="http://www.prime.com.tr" />
+                <p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+            </p:submenu>
+            <p:menuitem value="Mobile"  />
+        </p:submenu>
+    </p:slideMenu>
+ 
+    <p:separator />
+ 
 
 
-
-	</h:form>
+</h:form>
 </h:body>
 </html>
