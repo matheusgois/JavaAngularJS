@@ -54,13 +54,15 @@ public class ProprietarioBean  implements Serializable{
 	{
 		System.out.println("tpelefone");
 		//TA CADASTRAndoO O TIPOOOO
-		//proprietarioservice.cadastraTipo(tpelefone);
-		
+		proprietarioservice.cadastraTipo(tpelefone);
 		//System.out.println(telefonesId.setCpfProprietario(proprietario.getCpfProprietario()));
 		//telefonesId.setDdd(060);
 		proprietario.setUf("DF");
 		proprietarioservice.incluir(proprietario);
-		//proprietarioservice.cadastraTelefone(telefonesId);
+		telefonesId.setCpfProprietario(proprietario.getCpfProprietario());
+		telefonesId.setDdd(061);
+		
+		proprietarioservice.cadastraTelefone(telefonesId);
 		
 		
 	
