@@ -7,23 +7,27 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.stefanini.model.Propietario;
+import com.stefanini.model.Proprietario;
+import com.stefanini.model.TelefonesId;
 import com.stefanini.model.Tipotelefone;
-import com.stefanini.repository.PropietarioRepository;
+import com.stefanini.repository.ProprietarioRepository;
 import com.stefanini.repository.TipoTelefonesRepository;
 
 @Stateless
-public class PropietarioService {
+public class ProprietarioService {
 	
 	@Inject
-	private PropietarioRepository proprietarioRepository;
+	private ProprietarioRepository proprietarioRepository;
 	
 	@Inject
 	private TipoTelefonesRepository tipoTelefonesRepository;
 	
+	@Inject
+	private TelefonesId telefone;
+	
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void incluir(Propietario propietario){
-    	proprietarioRepository.incluirAgente(propietario);
+    public void incluir(Proprietario propietario){
+    	proprietarioRepository.incluirPropietario(propietario);
     }
     
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -37,6 +41,12 @@ public class PropietarioService {
     public void cadastraTipo(Tipotelefone tipoTelefone){
     	tipoTelefonesRepository.CadastraTipo(tipoTelefone);
     }
+    
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void cadastraTelefone(TelefonesId telefone){
+    	tipoTelefonesRepository.CadastraTelefone(telefone);
+    }
+    
     
     
 }

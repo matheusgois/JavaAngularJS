@@ -5,7 +5,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.stefanini.model.Propietario;
+import com.stefanini.model.Agente;
 import com.stefanini.repository.AgenteRepository;
 
 @Stateless
@@ -15,7 +15,7 @@ public class AgenteService {
 	private AgenteRepository agenteRepository;
 	
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void incluir(Propietario agente){
+    public void incluir(Agente agente){
     	agenteRepository.incluirAgente(agente);
     }
 

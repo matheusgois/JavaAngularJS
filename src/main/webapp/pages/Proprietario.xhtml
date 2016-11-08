@@ -16,49 +16,49 @@
 	   <p:panel id="panel" header="Cadastro de Proprietarios">
  
 		 <p:outputLabel for="nome" value="NOME" /> 
-		 <p:inputText id="nome" value="#{propietarioMB.propietario.nome}" required="true"/>
+		 <p:inputText id="nome" value="#{proprietarioMB.proprietario.nome}" required="true"/>
 		 <br/>
 		 
 		 <p:outputLabel for="cpf" value="CPF :" />
-		 <p:inputText id="cpf" value="#{propietarioMB.propietario.cpfProprietario}" required="true" />
+		 <p:inputText id="cpf" value="#{proprietarioMB.proprietario.cpfProprietario}" required="true" />
 		 <br/>
 		 
 		 <p:outputLabel for="ende" value="ENDEREÇO : " />
-		 <p:inputText id="ende" value="#{propietarioMB.propietario.endereco}" required="true"/>
+		 <p:inputText id="ende" value="#{proprietarioMB.proprietario.endereco}" required="true"/>
 		 <br/>
 		
 		 <p:outputLabel for="bairro" value="BAIRRO : " />
-		 <p:inputText id="bairro" value="#{propietarioMB.propietario.bairro}" required="true"/>
+		 <p:inputText id="bairro" value="#{proprietarioMB.proprietario.bairro}" required="true"/>
 		 <br/>
 		
 		 <p:outputLabel for="cidade" value="CIDADE : " />
-		 <p:inputText id="cidade" value="#{propietarioMB.propietario.cidade}" required="true"/>
+		 <p:inputText id="cidade" value="#{proprietarioMB.proprietario.cidade}" required="true"/>
 		 <br/>
 		
 	     <h:selectOneMenu id="estado">
-	     <f:selectItems value="#{propietarioMB.statuses}" />  
+	     <f:selectItems value="#{proprietarioMB.statuses}" />  
          </h:selectOneMenu>
          <br/>  
         
-          <p:selectOneRadio        value="#{propietarioMB.propietario.sexo}">
+          <p:selectOneRadio        value="#{proprietarioMB.proprietario.sexo}">
             <f:selectItem itemLabel="Masculino" itemValue="M" />
             <f:selectItem itemLabel="Feminino" itemValue="F" />
           </p:selectOneRadio>
 		
 		<p:outputLabel for="datanasc" value="DATA DE NASCIMETO : " />
-		 <p:calendar  id="datanasc" value="#{propietarioMB.propietario.dtNascimento}" required="true"/>
+		 <p:calendar  id="datanasc" value="#{proprietarioMB.proprietario.dtNascimento}" required="true"/>
 		 <br/>
             
          <p:outputLabel for="tipotel" value="TIPE TELEFONE :" />
-         <p:inputMask id="tipotel" value="#{propietarioMB.tpelefone.descricaoTipoTelefone}" />
+         <p:inputMask id="tipotel" value="#{proprietarioMB.tipotelefone.descricaoTipoTelefone}" />
 		 <br/>  
 		
 		
 		 <p:outputLabel for="tele" value="TELEFONE :" />
-         <p:inputMask id="tele" value="#{propietarioMB.telefonesId.numero}" />
+         <p:inputMask id="tele" value="#{proprietarioMB.telefonesId.numero}" />
 		 <br/>  
 		
-		<p:commandButton value="Salvar" update="panel" action="#{propietarioMB.salvar()}"  icon="ui-icon-check" />
+		<p:commandButton value="Salvar" update="panel" action="#{proprietarioMB.salvar()}"  icon="ui-icon-check" />
 		<br/>
        
 

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.stefanini.model.TelefonesId;
 import com.stefanini.model.Tipotelefone;
 
 public class TipoTelefonesRepository {
@@ -26,4 +27,9 @@ public class TipoTelefonesRepository {
 		this.manager.persist(tipotelefone);
 	}
 
+	public void CadastraTelefone(TelefonesId telefone) {
+		this.manager.persist(telefone);
+	}
+
+	
 }
