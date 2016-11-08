@@ -25,9 +25,7 @@ public class ProprietarioService {
 	@Inject
 	private TelefonesId telefone;
 	
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void incluir(Proprietario propietario){
-    	
     	proprietarioRepository.incluirPropietario(propietario);
     }
     

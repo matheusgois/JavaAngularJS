@@ -60,7 +60,7 @@ public class ProprietarioBean  implements Serializable{
 		//telefonesId.setDdd(060);
 		proprietario.setUf("DF");
 		proprietarioservice.incluir(proprietario);
-		proprietarioservice.cadastraTelefone(telefonesId);
+		//proprietarioservice.cadastraTelefone(telefonesId);
 		
 		
 	
@@ -83,6 +83,10 @@ public class ProprietarioBean  implements Serializable{
 	}
 	
 	public Proprietario getProprietario() {
+		if(proprietario ==null)
+		{
+			proprietario = new Proprietario();
+		}
 		return proprietario;
 	}
 

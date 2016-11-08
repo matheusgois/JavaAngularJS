@@ -38,7 +38,7 @@ public class Proprietario implements Serializable {
 	}
 
 	public Proprietario(String nome, String endereco, String bairro, String cidade, String uf, String sexo,
-			Date dtNascimento) {
+			Date dtNascimento ,Integer cpfProprietario) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.bairro = bairro;
@@ -46,11 +46,10 @@ public class Proprietario implements Serializable {
 		this.uf = uf;
 		this.sexo = sexo;
 		this.dtNascimento = dtNascimento;
+		this.cpfProprietario =cpfProprietario;
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	public Integer getCpfProprietario() {
 		return this.cpfProprietario;
