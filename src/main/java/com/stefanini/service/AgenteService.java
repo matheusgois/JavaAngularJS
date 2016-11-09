@@ -19,9 +19,6 @@ public class AgenteService {
     	agenteRepository.incluirAgente(agente);
     }
     
-    public buscar(Integer id){
-    	return agenteRepository.busca(agente);
-    	
-    }
+    
 
 }
