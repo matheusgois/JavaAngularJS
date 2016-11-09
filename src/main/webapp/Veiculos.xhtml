@@ -17,28 +17,14 @@
 <h:body style="background-color: #F5F6CE">
 	<h:form id="frmAgente">
 		<p:dataTable style="width: 1000px; margin: 0 auto;" var="agente"
-			value="#{proprietarioMB.ListarProprietario()}">
-			<p:column headerText="Id" filterBy="#{proprietarioMB.proprietario.cpfProprietario}">
-				<h:outputText value="" />
+			value="#{agenteMB.ListarAgentes()}">
+			<p:column headerText="Id" filterBy="#{agente.idAgente}">
+				<h:outputText value="#{agente.idAgente}" />
 			</p:column>
 
-			<p:column headerText="Nome" filterBy="#{proprietarioMB.proprietario.nome}">
-				<h:outputText value="#" />
+			<p:column headerText="Nome" filterBy="#{agente.nome}">
+				<h:outputText value="#{agente.nome}" />
 			</p:column>
-
-			<p:column headerText="Nome" filterBy="#{proprietarioMB.proprietario.bairro}">
-				<h:outputText value="#" />
-			</p:column>
-
-			<p:column headerText="Nome" filterBy="#{proprietarioMB.proprietario.cidade}">
-				<h:outputText value="#" />
-			</p:column>
-
-			<p:column headerText="Nome" filterBy="#{proprietarioMB.proprietario.dtNascimento}">
-				<h:outputText value="#" />
-			</p:column>
-
-
 
 			<p:column headerText="Opções">
 				<p:spacer width="15" height="4" />
@@ -64,15 +50,15 @@
 
 				<p:outputLabel value="Nome" />
 				<p:inputText size="20" required="true"
-					value="" />
+					value="#{agenteMB.agente.nome}" />
 
 				<p:outputLabel value="Data Contratação" />
-				<p:inputText size="20" required="true"
-					value="" />
+				<p:calendar id="popup" required="true"
+					value="#{agenteMB.agente.dtContratacao}" />
 
 				<p:outputLabel value="Tempo se Serviço" />
 				<p:inputText size="20" required="true"
-					value="" />
+					value="#{agenteMB.agente.tempoServico}" />
 
 			</h:panelGrid>
 			<h:panelGrid columns="2">
@@ -92,15 +78,15 @@
 
 				<p:outputLabel value="Nome" />
 				<p:inputText size="20" required="true"
-					value="" />
+					value="#{agenteMB.agente.nome}" />
 
 				<p:outputLabel value="Data Contratação" />
 				<p:inputText size="20" required="true"
-					value="" />
+					value="#{agenteMB.agente.dtContratacao}" />
 
 				<p:outputLabel value="Tempo se Serviço" />
 				<p:inputText size="20" required="true"
-					value="" />
+					value="#{agenteMB.agente.tempoServico}" />
 
 			</h:panelGrid>
 			<h:panelGrid columns="2">
@@ -120,15 +106,15 @@
 
 				<p:outputLabel value="Nome" />
 				<h:outputText size="20" required="true"
-					value=""/>
+					value="#{agenteMB.agente.nome}"/>
 
 				<p:outputLabel value="Data Contratação" />
 				<h:outputText size="20" required="true"
-					value=""/>
+					value="#{agenteMB.agente.dtContratacao}"/>
 
 				<p:outputLabel value="Tempo se Serviço" />
 				<h:outputText size="20" required="true"
-					value=""/>
+					value="#{agenteMB.agente.tempoServico}"/>
 
 			</h:panelGrid>
 			<h:panelGrid columns="2">

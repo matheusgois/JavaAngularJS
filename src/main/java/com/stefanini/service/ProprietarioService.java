@@ -7,8 +7,9 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
+import com.stefanini.model.Agente;
 import com.stefanini.model.Proprietario;
-import com.stefanini.model.TelefonesId;
+import com.stefanini.model.Telefones;
 import com.stefanini.model.Tipotelefone;
 import com.stefanini.repository.ProprietarioRepository;
 import com.stefanini.repository.TipoTelefonesRepository;
@@ -22,11 +23,9 @@ public class ProprietarioService {
 	@Inject
 	private TipoTelefonesRepository tipoTelefonesRepository;
 	
-	@Inject
-	private TelefonesId telefone;
-	
-    public void incluir(Proprietario propietario){
+    public void incluir(Proprietario propietario, Telefones telefones){
     	proprietarioRepository.incluirPropietario(propietario);
+    	
     }
     
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -36,24 +35,24 @@ public class ProprietarioService {
  
     }
     
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void cadastraTipo(Tipotelefone tipoTelefone){
     	tipoTelefonesRepository.CadastraTipo(tipoTelefone);
     }
     
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void cadastraTelefone(TelefonesId telefone){
-    	tipoTelefonesRepository.CadastraTelefone(telefone);
-    }
+ 
 
-	public TelefonesId getTelefone() {
-		return telefone;
-	}
-
+<<<<<<< HEAD
 	public void setTelefone(TelefonesId telefone) {
 		this.telefone = telefone;
 	}
     
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public List<Proprietario> listarProprietario() {
+		return proprietarioRepository.lista();
+	}
+	
+=======
+>>>>>>> 5604ac04b950df99e9e17141b5917a5b79276240
     
     
 }
