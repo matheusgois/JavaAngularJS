@@ -21,8 +21,9 @@ public class Telefones implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private TelefonesId id;
+
 	private int idTipoTelefone;
 
 	public Telefones() {
@@ -34,10 +35,9 @@ public class Telefones implements Serializable {
 	}
 
 	@EmbeddedId
-
-	/*@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
+	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
 			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = true)),
-			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })*/
+			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })
 	public TelefonesId getId() {
 		return this.id;
 	}
