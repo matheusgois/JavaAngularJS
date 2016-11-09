@@ -12,7 +12,6 @@ import com.stefanini.model.Estados;
 import com.stefanini.model.Proprietario;
 import com.stefanini.model.Telefones;
 import com.stefanini.model.TelefonesId;
-import com.stefanini.model.TiposTel;
 import com.stefanini.model.Tipotelefone;
 import com.stefanini.service.ProprietarioService;
 
@@ -46,9 +45,7 @@ public class ProprietarioBean  implements Serializable{
 		return Estados.values();
 	}
 	
-	public TiposTel[] getTiposTel() {
-		return TiposTel.values();
-	}
+	
 	
 	public void salvar()
 	{
