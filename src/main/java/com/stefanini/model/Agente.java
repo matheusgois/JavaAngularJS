@@ -79,5 +79,7 @@ public class Agente implements  Serializable {
 	public void setTempoServico(Integer tempoServico) {
 		this.tempoServico = tempoServico;
 	}
+	
+
 
 }

@@ -20,6 +20,8 @@ public class AgenteBean {
 	
 	@Inject
 	private Agente agente;
+	
+	private Agente agenteSelecionado;
 
 	public void passar() throws IOException {
        
@@ -43,6 +45,19 @@ public class AgenteBean {
 	{
 		return agenteService.listarAgente();
 	} 
+	
+	public void linhaSelecionada()
+	{
+		System.out.println("tetaetrae  "+agenteSelecionado.getNome());
+	}
+
+	public Agente getAgenteSelecionado() {
+		return agenteSelecionado;
+	}
+
+	public void setAgenteSelecionado(Agente agenteSelecionado) {
+		this.agenteSelecionado = agenteSelecionado;
+	}
 }
 
 
