@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+
+
+		<p:dataTable var="Agentes" value="#{agenteMB.ListarAgentes()}"  >
+			<p:column headerText="nome">
+				<h:outputText  value="#{agenteMB.agente.nome}" />
+			</p:column>
+
+			<p:column headerText="tempoServico">
+				<h:outputText  value="#{agenteMB.agente.tempoServico}"  />
+			</p:column>
+
+			<p:column headerText="dataContracao">
+				<h:outputText   value="#{agenteMB.agente.dtContratacao}"/>
+			</p:column>
+
+			<p:column headerText="Editar">
+				<h:outputText  value="EDITAR" />
+			</p:column>
+			
+			<p:column headerText="excluir">
+				<h:outputText  value="EXCLUIR" />
+			</p:column>
+			
+			
+		</p:dataTable>
+
+
+	</h:form>
+</h:body>
+</html>
