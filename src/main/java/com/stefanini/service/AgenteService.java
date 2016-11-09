@@ -18,5 +18,10 @@ public class AgenteService {
     public void incluir(Agente agente){
     	agenteRepository.incluirAgente(agente);
     }
+    
+    public buscar(Integer id){
+    	return agenteRepository.busca(agente);
+    	
+    }
 
 }
