@@ -8,30 +8,121 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<style type="text/css">
+.ui-widget {
+	font-size: 13px !important;
+}
+</style>
 </h:head>
-<h:body>
-	<h:form>
-	  <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-	  
-	   <p:panel id="panel" header="Veiculos">
- 
-		<p:outputLabel for="placa" value="PLACA :" />
-		 <p:inputText id="placa" value="#{veiculosMB.veiculos.placa}" required="true"/>
-		 <br/>
-		 
-		 <p:outputLabel for="cpfPropriario" value="CPF :" />
-		 <p:calendar id="cpfPropriario" value="#{veiculosMB.veiculos.cpfProprietario}" required="true" />
-		 <br/>
-		 
-		 <p:outputLabel for="tempservico" value="TEMPO DE SERVIÇOS : " />
-		  <p:inputText id="tempservico" value="#{agenteMB.agente.tempoServico}" required="true"/>
-		
-		<br/>
-		<p:commandButton value="Salvar" update="panel" action="#{agenteMB.passar()}"  icon="ui-icon-check" />
-		<br/>
-       
+<h:body style="background-color: #F5F6CE">
+	<h:form id="frmAgente">
+		<p:dataTable style="width: 1000px; margin: 0 auto;" var="agente"
+			value="#{agenteMB.ListarAgentes()}">
+			<p:column headerText="Id" filterBy="#{agente.idAgente}">
+				<h:outputText value="" />
+			</p:column>
 
-</p:panel>
+			<p:column headerText="Nome" filterBy="#{agente.nome}">
+				<h:outputText value="#" />
+			</p:column>
+
+			<p:column headerText="Opções">
+				<p:spacer width="15" height="4" />
+				<p:commandButton icon="ui-icon-trash" onclick="PF('dlgAgenteExcluir').show();" update=":frmAgenteExcluir"/>
+				<p:spacer width="10" height="4" />
+				<p:commandButton icon="ui-icon-pencil" onclick="PF('dlgAgenteAtualizar').show();" update=":frmAgenteAtualizar"/>
+			</p:column>
+
+			<f:facet name="footer">
+				<p:commandButton value="Voltar" outcome="/index.xhtml" />
+				<p:commandButton icon="ui-icon-newwin" value="Novo" type="button" onclick="PF('dlgAgenteNovo').show();"/>
+			</f:facet>
+		</p:dataTable>
 	</h:form>
+
+
+	<p:dialog widgetVar="dlgAgenteNovo" closable="false" draggable="true"
+		resizable="false" responsive="true" header="Cadastrar Novo Agente"
+		modal="true" appendTo="@(body)">
+		<h:form id="frmAgenteNovo">
+
+			<h:panelGrid id="pnlAgenteNovo" columns="2">
+
+				<p:outputLabel value="Nome" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+				<p:outputLabel value="Data Contratação" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+				<p:outputLabel value="Tempo se Serviço" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" action="#{agenteMB.passar()}" update=":frmAgente :frmAgenteNovo"/>
+				<p:commandButton value="Cancelar" onclick="PF('dlgAgenteNovo').hide();" update=":frmAgente"/>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+	
+	<p:dialog widgetVar="dlgAgenteAtualizar" closable="false" draggable="true"
+		resizable="false" responsive="true" header="Cadastrar Novo Agente"
+		modal="true" appendTo="@(body)">
+		<h:form id="frmAgenteAtualizar">
+
+			<h:panelGrid id="pnlAgenteAtualizar" columns="2">
+
+				<p:outputLabel value="Nome" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+				<p:outputLabel value="Data Contratação" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+				<p:outputLabel value="Tempo se Serviço" />
+				<p:inputText size="20" required="true"
+					value="" />
+
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" update=":frmAgente"/>
+				<p:commandButton value="Cancelar" onclick="PF('dlgAgenteAtualizar').hide();" />
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+	
+	<p:dialog widgetVar="dlgAgenteExcluir" closable="false" draggable="true"
+		resizable="false" responsive="true" header="Cadastrar Novo Agente"
+		modal="true" appendTo="@(body)">
+		<h:form id="frmAgenteExcluir">
+
+			<h:panelGrid id="pnlAgenteExcluir" columns="2">
+
+				<p:outputLabel value="Nome" />
+				<h:outputText size="20" required="true"
+					value=""/>
+
+				<p:outputLabel value="Data Contratação" />
+				<h:outputText size="20" required="true"
+					value=""/>
+
+				<p:outputLabel value="Tempo se Serviço" />
+				<h:outputText size="20" required="true"
+					value=""/>
+
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" update=":frmAgente"/>
+				<p:commandButton value="Cancelar" onclick="PF('dlgAgenteExcluir').hide();" />
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
 </h:body>
 </html>
