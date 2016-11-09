@@ -25,7 +25,11 @@ public class Proprietario implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	private Integer cpfProprietario;
+	
 	private String nome;
 	private String endereco;
 	private String bairro;
@@ -49,8 +53,6 @@ public class Proprietario implements Serializable {
 		this.cpfProprietario =cpfProprietario;
 	}
 
-	@Id
-	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	public Integer getCpfProprietario() {
 		return this.cpfProprietario;
 	}
