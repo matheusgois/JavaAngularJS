@@ -3,11 +3,8 @@ package com.stefanini.model;
 
 import java.io.Serializable;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -24,11 +21,14 @@ public class Telefones implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
-			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = true)),
-			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })
-	private TelefonesId id;
+	@Id
+	private Integer numero;
+
+	private Integer ddd;
+
+	@ManyToOne
+	@JoinColumn(name = "PROP_ID")
+	private Proprietario proprietario;;
 
 	@ManyToOne
 	@JoinColumn(name = "TIPO_ID")
@@ -37,17 +37,28 @@ public class Telefones implements Serializable {
 	public Telefones() {
 	}
 
-	public Telefones(TelefonesId id, Tipotelefone idTipoTelefone) {
-		this.id = id;
-		this.tipotelefone = idTipoTelefone;
+	public Integer getNumero() {
+		return numero;
 	}
 
-	public TelefonesId getId() {
-		return id;
+	public void setNumero(Integer numero) {
+		this.numero = numero;
 	}
 
-	public void setId(TelefonesId id) {
-		this.id = id;
+	public Integer getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(Integer ddd) {
+		this.ddd = ddd;
+	}
+
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
 	}
 
 	public Tipotelefone getTipotelefone() {
