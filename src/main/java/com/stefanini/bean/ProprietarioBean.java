@@ -17,7 +17,7 @@ import com.stefanini.service.ProprietarioService;
 
 @SessionScoped
 @ManagedBean(name = "proprietarioMB")
-public class ProprietarioBean  implements Serializable{
+public class ProprietarioBean implements Serializable {
 
 	@Inject
 	private ProprietarioService proprietarioservice;
@@ -27,15 +27,14 @@ public class ProprietarioBean  implements Serializable{
 	private Telefones telefones;
 	@Inject
 	private Tipotelefone tpelefone;
-	
+
 	@Inject
 	private Proprietario proprietario;
-	
+
 	@Inject
 	private TelefonesId telefonesId;
 
 	private Estados estados;
-
 
 	public List<Tipotelefone> listartipos() {
 		return proprietarioservice.buscarTelefones();
@@ -44,25 +43,20 @@ public class ProprietarioBean  implements Serializable{
 	public Estados[] getStatuses() {
 		return Estados.values();
 	}
-	
-	
-	
-	public void salvar()
-	{
+
+	public void salvar() {
 		System.out.println("tpelefone");
-		//TA CADASTRAndoO O TIPOOOO
+		// TA CADASTRAndoO O TIPOOOO
 		proprietarioservice.cadastraTipo(tpelefone);
-		//System.out.println(telefonesId.setCpfProprietario(proprietario.getCpfProprietario()));
-		//telefonesId.setDdd(060);
+		// System.out.println(telefonesId.setCpfProprietario(proprietario.getCpfProprietario()));
+		// telefonesId.setDdd(060);
 		proprietario.setUf("DF");
 		proprietarioservice.incluir(proprietario);
 		telefonesId.setCpfProprietario(proprietario.getCpfProprietario());
 		telefonesId.setDdd(061);
-		
+
 		proprietarioservice.cadastraTelefone(telefonesId);
-		
-		
-	
+
 	}
 
 	public TelefonesId getTelefonesId() {
@@ -80,10 +74,9 @@ public class ProprietarioBean  implements Serializable{
 	public void setAgente(Agente agente) {
 		this.agente = agente;
 	}
-	
+
 	public Proprietario getProprietario() {
-		if(proprietario ==null)
-		{
+		if (proprietario == null) {
 			proprietario = new Proprietario();
 		}
 		return proprietario;
@@ -92,7 +85,6 @@ public class ProprietarioBean  implements Serializable{
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
-	
 
 	public Telefones getTelefones() {
 		return telefones;
@@ -101,7 +93,7 @@ public class ProprietarioBean  implements Serializable{
 	public void setTelefones(Telefones telefones) {
 		this.telefones = telefones;
 	}
-	
+
 	public Tipotelefone getTipotelefone() {
 		return tpelefone;
 	}
@@ -109,7 +101,5 @@ public class ProprietarioBean  implements Serializable{
 	public void setTipotelefone(Tipotelefone tpelefone) {
 		this.tpelefone = tpelefone;
 	}
-	
-	
 
 }

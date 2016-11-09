@@ -23,7 +23,7 @@ public class AgenteBean {
 
 	public void passar() throws IOException {
        
-		FacesContext.getCurrentInstance().getExternalContext().redirect("pages/teste.xhtml");
+		FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
 		agenteService.incluir(this.agente);
 		
 	}
