@@ -1,9 +1,12 @@
 package com.stefanini.bean;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
+import com.stefanini.model.Agente;
 import com.stefanini.model.Categoria;
 import com.stefanini.model.Modelo;
 import com.stefanini.model.Veiculos;
@@ -48,5 +51,8 @@ public class VeiculosBean {
 		this.veiculos = veiculos;
 	}
 
-	
+	public List<Veiculos> ListarVeiculos()
+	{
+		return veiculosService.listarVeiculos();
+	}
 }

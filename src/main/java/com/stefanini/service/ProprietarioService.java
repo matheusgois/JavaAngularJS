@@ -7,6 +7,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
+import com.stefanini.model.Agente;
 import com.stefanini.model.Proprietario;
 import com.stefanini.model.TelefonesId;
 import com.stefanini.model.Tipotelefone;
@@ -36,7 +37,6 @@ public class ProprietarioService {
  
     }
     
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void cadastraTipo(Tipotelefone tipoTelefone){
     	tipoTelefonesRepository.CadastraTipo(tipoTelefone);
     }
@@ -54,6 +54,11 @@ public class ProprietarioService {
 		this.telefone = telefone;
 	}
     
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public List<Proprietario> listarProprietario() {
+		return proprietarioRepository.lista();
+	}
+	
     
     
 }

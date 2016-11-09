@@ -24,8 +24,8 @@ public class ProprietarioRepository {
 		return this.manager.find(Agente.class, id);
 	}
 
-	public List<Agente> lista() {
-		return this.manager.createQuery("from propietario", Agente.class)
+	public List<Proprietario> lista() {
+		return this.manager.createQuery("from propietario", Proprietario.class)
 				.getResultList();
 	}
 

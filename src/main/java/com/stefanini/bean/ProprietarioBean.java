@@ -102,4 +102,9 @@ public class ProprietarioBean implements Serializable {
 		this.tpelefone = tpelefone;
 	}
 
+	public List<Proprietario> ListarProprietario()
+	{
+		return proprietarioservice.listarProprietario();
+	} 
+	
 }
