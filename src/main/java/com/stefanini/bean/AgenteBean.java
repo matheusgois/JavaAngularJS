@@ -1,6 +1,7 @@
 package com.stefanini.bean;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -37,4 +38,11 @@ public class AgenteBean {
 	public void setAgente(Agente agente) {
 		this.agente = agente;
 	}
+	
+	public List<Agente> ListarAgentes()
+	{
+		return agenteService.listarAgente();
+	} 
 }
+
+
