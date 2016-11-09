@@ -8,36 +8,41 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<style type="text/css">
+.ui-widget {
+	font-size: 13px !important;
+}
+</style>
 </h:head>
 <h:body>
-	<h:form>
+
+	<p:dataTable style="width: 1000px; margin: 0 auto;" var="agente"
+		value="#{agenteMB.ListarAgentes()}">
+		
+		<p:column headerText="Id" filterBy="#{agente.idAgente}">
+			<h:outputText value="#{agente.idAgente}" />
+		</p:column>
+
+		<p:column headerText="Nome" filterBy="#{agente.nome}">
+			<h:outputText value="#{agente.nome}" />
+		</p:column>
+        
+        
+        <p:column headerText="Opções">
+			<p:spacer width="15" height="4" />
+			<p:commandButton icon="ui-icon-search" onclick="PF('').show();"/>
+			<p:spacer width="10" height="4" />
+			<p:commandButton icon="ui-icon-pencil" onclick="PF('').show();"/>
+		</p:column>
+        
+    
 
 
-		<p:dataTable var="Agentes" value="#{agenteMB.ListarAgentes()}"  >
-			<p:column headerText="nome">
-				<h:outputText  value="#{agenteMB.agente.nome}" />
-			</p:column>
-
-			<p:column headerText="tempoServico">
-				<h:outputText  value="#{agenteMB.agente.tempoServico}"  />
-			</p:column>
-
-			<p:column headerText="dataContracao">
-				<h:outputText   value="#{agenteMB.agente.dtContratacao}"/>
-			</p:column>
-
-			<p:column headerText="Editar">
-				<h:outputText  value="EDITAR" />
-			</p:column>
-			
-			<p:column headerText="excluir">
-				<h:outputText  value="EXCLUIR" />
-			</p:column>
-			
-			
-		</p:dataTable>
+		<f:facet name="footer">
+			<p:commandButton value="Voltar" action="/index.xhtml" />
+		</f:facet>
+	</p:dataTable>
 
 
-	</h:form>
 </h:body>
 </html>

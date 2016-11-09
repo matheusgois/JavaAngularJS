@@ -16,12 +16,11 @@ public class AgenteService {
 	@Inject
 	private AgenteRepository agenteRepository;
 
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void incluir(Agente agente) {
 		agenteRepository.incluirAgente(agente);
 	}
 
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Agente> listarAgente() {
 		return agenteRepository.lista();
 	}
