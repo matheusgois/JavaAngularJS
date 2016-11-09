@@ -34,6 +34,7 @@ public class Agente implements  Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "dtContratacao", length = 10)
+	
 	private Date dtContratacao;
 	private Integer tempoServico;
 
