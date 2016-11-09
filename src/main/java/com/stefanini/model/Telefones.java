@@ -35,9 +35,9 @@ public class Telefones implements Serializable {
 
 	@EmbeddedId
 
-	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = false)),
-			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = false)),
-			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = false)) })
+	/*@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
+			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = true)),
+			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })*/
 	public TelefonesId getId() {
 		return this.id;
 	}
