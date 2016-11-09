@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,35 +24,30 @@ public class Infracoes implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "idInfracao", unique = true, nullable = false)
 	private Integer idInfracao;
-	
-	
-	
+
 	@ManyToOne
+	@JoinColumn(name = "AGENT_ID")
 	private Agente agente;
-	
-	
-	
+
 	@ManyToOne
+	@JoinColumn(name = "LOCAL_ID")
 	private Localinfracao localInfracao;
-	
-	
+
 	@ManyToOne
+	@JoinColumn(name = "TIPO_ID")
 	private Tipoinfracao tipoInfracao;
-	
-	
+
 	@ManyToOne
+	@JoinColumn(name = "PLACA_ID")
 	private Veiculos placaVeic;
-	
-	
+
 	private Integer velocidade;
 
-	
-	
 	public Infracoes() {
 	}
 
@@ -109,8 +105,5 @@ public class Infracoes implements Serializable {
 	public void setVelocidade(Integer velocidade) {
 		this.velocidade = velocidade;
 	}
-
-	
-	
 
 }
