@@ -1,14 +1,11 @@
 package com.stefanini.model;
 // Generated 07/11/2016 12:04:56 by Hibernate Tools 4.3.1.Final
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,6 +25,7 @@ public class Proprietario implements Serializable {
 	
 	@Id
 	@Column(name = "cpfProprietario", unique = true, nullable = false)
+	
 	private Integer cpfProprietario;
 	
 	private String nome;
@@ -37,10 +35,14 @@ public class Proprietario implements Serializable {
 	private String uf;
 	private String sexo;
 	private Date dtNascimento;
-
+	
+	
+	
+	
+	
 	public Proprietario() {
 	}
-
+	
 	public Proprietario(String nome, String endereco, String bairro, String cidade, String uf, String sexo,
 			Date dtNascimento ,Integer cpfProprietario) {
 		this.nome = nome;

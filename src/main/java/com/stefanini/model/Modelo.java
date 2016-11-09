@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,20 +25,29 @@ public class Modelo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer idModelo;
-	private int idCategoria;
+	
+	@ManyToOne
+	@JoinColumn(name = "CAT_ID")
+	private Categoria categoria;
+	
 	private String descricaoModelo;
 
 	public Modelo() {
 	}
 
-	public Modelo(int idCategoria) {
-		this.idCategoria = idCategoria;
+	
+
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public Modelo(int idCategoria, String descricaoModelo) {
-		this.idCategoria = idCategoria;
-		this.descricaoModelo = descricaoModelo;
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -50,14 +61,6 @@ public class Modelo implements Serializable {
 		this.idModelo = idModelo;
 	}
 
-	@Column(name = "idCategoria", nullable = false)
-	public int getIdCategoria() {
-		return this.idCategoria;
-	}
-
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
-	}
 
 	@Column(name = "descricaoModelo", length = 50)
 	public String getDescricaoModelo() {

@@ -22,8 +22,16 @@ public class Tipoinfracao implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idTipoInfracao", unique = true, nullable = false)
 	private Integer idTipoInfracao;
+	
+	@Column(name = "descricaoTipoInfracao", length = 50)
 	private String descricaoTipoInfracao;
+	
+	@Column(name = "valor", precision = 22, scale = 0)
 	private Double valor;
 
 	public Tipoinfracao() {
@@ -34,10 +42,7 @@ public class Tipoinfracao implements Serializable {
 		this.valor = valor;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idTipoInfracao", unique = true, nullable = false)
+	
 	public Integer getIdTipoInfracao() {
 		return this.idTipoInfracao;
 	}
@@ -46,7 +51,7 @@ public class Tipoinfracao implements Serializable {
 		this.idTipoInfracao = idTipoInfracao;
 	}
 
-	@Column(name = "descricaoTipoInfracao", length = 50)
+	
 	public String getDescricaoTipoInfracao() {
 		return this.descricaoTipoInfracao;
 	}
@@ -55,7 +60,7 @@ public class Tipoinfracao implements Serializable {
 		this.descricaoTipoInfracao = descricaoTipoInfracao;
 	}
 
-	@Column(name = "valor", precision = 22, scale = 0)
+
 	public Double getValor() {
 		return this.valor;
 	}

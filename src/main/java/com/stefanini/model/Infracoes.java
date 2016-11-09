@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,86 +23,92 @@ public class Infracoes implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idInfracao", unique = true, nullable = false)
 	private Integer idInfracao;
-	private int idAgente;
-	private int idLocalInfracao;
-	private int idTipoInfracao;
-	private String placa;
+	
+	@ManyToOne
+	@Column(name = "idAgente", nullable = false)
+	private Agente agente;
+	
+	@ManyToOne
+	@Column(name = "idLocalInfracao", nullable = false)
+	private Localinfracao localInfracao;
+	
+	@ManyToOne
+	@Column(name = "idTipoInfracao", nullable = false)
+	private Tipoinfracao tipoInfracao;
+	
+	@ManyToOne
+	@Column(name = "placa", nullable = false, length = 7)
+	private Veiculos placaVeic;
+	
+	@Column(name = "velocidade")
 	private Integer velocidade;
 
+	
+	
 	public Infracoes() {
 	}
 
-	public Infracoes(int idAgente, int idLocalInfracao, int idTipoInfracao, String placa) {
-		this.idAgente = idAgente;
-		this.idLocalInfracao = idLocalInfracao;
-		this.idTipoInfracao = idTipoInfracao;
-		this.placa = placa;
+	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, Veiculos placa) {
+		this.agente = idAgente;
+		this.localInfracao = idLocalInfracao;
+		this.tipoInfracao = idTipoInfracao;
+		this.placaVeic = placa;
 	}
 
-	public Infracoes(int idAgente, int idLocalInfracao, int idTipoInfracao, String placa, Integer velocidade) {
-		this.idAgente = idAgente;
-		this.idLocalInfracao = idLocalInfracao;
-		this.idTipoInfracao = idTipoInfracao;
-		this.placa = placa;
-		this.velocidade = velocidade;
-	}
-
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idInfracao", unique = true, nullable = false)
 	public Integer getIdInfracao() {
-		return this.idInfracao;
+		return idInfracao;
 	}
 
 	public void setIdInfracao(Integer idInfracao) {
 		this.idInfracao = idInfracao;
 	}
 
-	@Column(name = "idAgente", nullable = false)
-	public int getIdAgente() {
-		return this.idAgente;
+	public Agente getAgente() {
+		return agente;
 	}
 
-	public void setIdAgente(int idAgente) {
-		this.idAgente = idAgente;
+	public void setAgente(Agente agente) {
+		this.agente = agente;
 	}
 
-	@Column(name = "idLocalInfracao", nullable = false)
-	public int getIdLocalInfracao() {
-		return this.idLocalInfracao;
+	public Localinfracao getLocalInfracao() {
+		return localInfracao;
 	}
 
-	public void setIdLocalInfracao(int idLocalInfracao) {
-		this.idLocalInfracao = idLocalInfracao;
+	public void setLocalInfracao(Localinfracao localInfracao) {
+		this.localInfracao = localInfracao;
 	}
 
-	@Column(name = "idTipoInfracao", nullable = false)
-	public int getIdTipoInfracao() {
-		return this.idTipoInfracao;
+	public Tipoinfracao getTipoInfracao() {
+		return tipoInfracao;
 	}
 
-	public void setIdTipoInfracao(int idTipoInfracao) {
-		this.idTipoInfracao = idTipoInfracao;
+	public void setTipoInfracao(Tipoinfracao tipoInfracao) {
+		this.tipoInfracao = tipoInfracao;
 	}
 
-	@Column(name = "placa", nullable = false, length = 7)
-	public String getPlaca() {
-		return this.placa;
+	public Veiculos getPlacaVeic() {
+		return placaVeic;
 	}
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
+	public void setPlacaVeic(Veiculos placaVeic) {
+		this.placaVeic = placaVeic;
 	}
 
-	@Column(name = "velocidade")
 	public Integer getVelocidade() {
-		return this.velocidade;
+		return velocidade;
 	}
 
 	public void setVelocidade(Integer velocidade) {
 		this.velocidade = velocidade;
 	}
+
+	
+	
 
 }
