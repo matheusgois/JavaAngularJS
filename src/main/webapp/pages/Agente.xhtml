@@ -34,7 +34,7 @@
 			</p:column>
 
 			<f:facet name="footer">
-				<p:commandButton value="Voltar" outcome="/index.xhtml" />
+				<p:commandButton value="Voltar" action="/index.xhtml" />
 				<p:commandButton icon="ui-icon-newwin" value="Novo" type="button" onclick="PF('dlgAgenteNovo').show();"/>
 			</f:facet>
 		</p:dataTable>
@@ -62,7 +62,7 @@
 
 			</h:panelGrid>
 			<h:panelGrid columns="2">
-				<p:commandButton value="Salvar" action="#{agenteMB.passar()}" update=":frmAgente :frmAgenteNovo"/>
+				<p:commandButton value="Salvar" action="#{agenteMB.passar()}" update=":frmAgente :frmAgenteNovo" />
 				<p:commandButton value="Cancelar" onclick="PF('dlgAgenteNovo').hide();" update=":frmAgente"/>
 			</h:panelGrid>
 		</h:form>
