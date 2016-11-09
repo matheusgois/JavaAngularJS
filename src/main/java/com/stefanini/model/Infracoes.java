@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,15 +29,19 @@ public class Infracoes implements Serializable {
 	@Column(name = "idInfracao", unique = true, nullable = false)
 	private Integer idInfracao;
 	
+	@ManyToOne
 	@Column(name = "idAgente", nullable = false)
 	private Agente agente;
 	
+	@ManyToOne
 	@Column(name = "idLocalInfracao", nullable = false)
 	private Localinfracao localInfracao;
 	
+	@ManyToOne
 	@Column(name = "idTipoInfracao", nullable = false)
 	private Tipoinfracao tipoInfracao;
 	
+	@ManyToOne
 	@Column(name = "placa", nullable = false, length = 7)
 	private Veiculos placaVeic;
 	

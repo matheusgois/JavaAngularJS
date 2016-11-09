@@ -31,6 +31,7 @@ public class Agente implements  Serializable {
 	
 	@Column(name = "nome", length = 100)
 	private String nome;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "dtContratacao", length = 10)
 	private Date dtContratacao;
