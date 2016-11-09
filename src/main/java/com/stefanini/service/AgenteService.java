@@ -10,18 +10,18 @@ import com.stefanini.repository.AgenteRepository;
 
 @Stateless
 public class AgenteService {
-
+	
 	@Inject
 	private AgenteRepository agenteRepository;
-
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void incluir(Agente agente) {
-		agenteRepository.incluirAgente(agente);
-	}
-
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<Agente> listarAgente() {
-		return agenteRepository.lista();
-	}
+	
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void incluir(Agente agente){
+    	agenteRepository.incluirAgente(agente);
+    }
+    
+    public buscar(Integer id){
+    	return agenteRepository.busca(agente);
+    	
+    }
 
 }
