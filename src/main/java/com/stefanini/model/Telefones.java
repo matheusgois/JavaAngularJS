@@ -21,6 +21,7 @@ public class Telefones implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private TelefonesId id;
 	private int idTipoTelefone;
 
