@@ -22,8 +22,16 @@ public class Localinfracao implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idLocalInfracao", unique = true, nullable = false)
 	private Integer idLocalInfracao;
+	
+	@Column(name = "descricaoLocalInfracao", length = 100)
 	private String descricaoLocalInfracao;
+	
+	@Column(name = "velocidadePermitida", precision = 22, scale = 0)
 	private Double velocidadePermitida;
 
 	public Localinfracao() {
@@ -34,10 +42,7 @@ public class Localinfracao implements Serializable {
 		this.velocidadePermitida = velocidadePermitida;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idLocalInfracao", unique = true, nullable = false)
+	
 	public Integer getIdLocalInfracao() {
 		return this.idLocalInfracao;
 	}
@@ -46,7 +51,7 @@ public class Localinfracao implements Serializable {
 		this.idLocalInfracao = idLocalInfracao;
 	}
 
-	@Column(name = "descricaoLocalInfracao", length = 100)
+	
 	public String getDescricaoLocalInfracao() {
 		return this.descricaoLocalInfracao;
 	}
@@ -55,7 +60,7 @@ public class Localinfracao implements Serializable {
 		this.descricaoLocalInfracao = descricaoLocalInfracao;
 	}
 
-	@Column(name = "velocidadePermitida", precision = 22, scale = 0)
+	
 	public Double getVelocidadePermitida() {
 		return this.velocidadePermitida;
 	}
