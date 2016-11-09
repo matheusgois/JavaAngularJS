@@ -8,6 +8,8 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,38 +23,39 @@ public class Telefones implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@EmbeddedId
+	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
+			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = true)),
+			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })
 	private TelefonesId id;
-	private int idTipoTelefone;
+
+	@ManyToOne
+	@JoinColumn(name = "TIPO_ID")
+	private Tipotelefone tipotelefone;
 
 	public Telefones() {
 	}
 
-	public Telefones(TelefonesId id, int idTipoTelefone) {
+	public Telefones(TelefonesId id, Tipotelefone idTipoTelefone) {
 		this.id = id;
-		this.idTipoTelefone = idTipoTelefone;
+		this.tipotelefone = idTipoTelefone;
 	}
 
-	@EmbeddedId
-
-	/*@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero", nullable = true)),
-			@AttributeOverride(name = "ddd", column = @Column(name = "ddd", nullable = true)),
-			@AttributeOverride(name = "cpfProprietario", column = @Column(name = "cpfProprietario", nullable = true)) })*/
 	public TelefonesId getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(TelefonesId id) {
 		this.id = id;
 	}
 
-	@Column(name = "idTipoTelefone", nullable = false)
-	public int getIdTipoTelefone() {
-		return this.idTipoTelefone;
+	public Tipotelefone getTipotelefone() {
+		return tipotelefone;
 	}
 
-	public void setIdTipoTelefone(int idTipoTelefone) {
-		this.idTipoTelefone = idTipoTelefone;
+	public void setTipotelefone(Tipotelefone tipotelefone) {
+		this.tipotelefone = tipotelefone;
 	}
 
 }

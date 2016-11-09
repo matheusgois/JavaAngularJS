@@ -16,8 +16,11 @@ public class TelefonesId implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Column(name = "numero", nullable = false)
 	private int numero;
+	@Column(name = "ddd", nullable = false)
 	private int ddd;
+	@Column(name = "cpfProprietario", nullable = false)
 	private int cpfProprietario;
 
 	public TelefonesId() {
@@ -29,7 +32,6 @@ public class TelefonesId implements Serializable {
 		this.cpfProprietario = cpfProprietario;
 	}
 
-	@Column(name = "numero", nullable = false)
 	public int getNumero() {
 		return this.numero;
 	}
@@ -38,7 +40,6 @@ public class TelefonesId implements Serializable {
 		this.numero = numero;
 	}
 
-	@Column(name = "ddd", nullable = false)
 	public int getDdd() {
 		return this.ddd;
 	}
@@ -47,7 +48,6 @@ public class TelefonesId implements Serializable {
 		this.ddd = ddd;
 	}
 
-	@Column(name = "cpfProprietario", nullable = false)
 	public int getCpfProprietario() {
 		return this.cpfProprietario;
 	}
