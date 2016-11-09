@@ -22,20 +22,21 @@ public class Categoria implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	private Integer idCategoria;
-	private String descricaiCategoria;
+	
+	@Column(name = "descricaoCategoria", length = 50)
+	private String descricaoCategoria;
 
 	public Categoria() {
 	}
 
 	public Categoria(String descricaiCategoria) {
-		this.descricaiCategoria = descricaiCategoria;
+		this.descricaoCategoria = descricaiCategoria;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idCategoria", unique = true, nullable = false)
+	
 	public Integer getIdCategoria() {
 		return this.idCategoria;
 	}
@@ -44,13 +45,13 @@ public class Categoria implements Serializable {
 		this.idCategoria = idCategoria;
 	}
 
-	@Column(name = "descricaiCategoria", length = 50)
+
 	public String getDescricaiCategoria() {
-		return this.descricaiCategoria;
+		return this.descricaoCategoria;
 	}
 
 	public void setDescricaiCategoria(String descricaiCategoria) {
-		this.descricaiCategoria = descricaiCategoria;
+		this.descricaoCategoria = descricaiCategoria;
 	}
 
 }

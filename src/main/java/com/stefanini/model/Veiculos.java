@@ -29,6 +29,7 @@ public class Veiculos implements Serializable {
 	private Proprietario proprietario;
 	
 	@OneToOne
+	@JoinColumn(name = "MOD_ID")
 	private Modelo modelo;
 	private String uf;
 
