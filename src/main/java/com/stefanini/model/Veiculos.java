@@ -6,6 +6,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,17 +23,22 @@ public class Veiculos implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String placa;
-	private int cpfProprietario;
-	private int idModelo;
+	
+	@ManyToOne
+	@JoinColumn(name = "PROP_ID")
+	private Proprietario proprietario;
+	
+	@OneToOne
+	private Modelo modelo;
 	private String uf;
 
 	public Veiculos() {
 	}
 
-	public Veiculos(String placa, int cpfProprietario, int idModelo, String uf) {
+	public Veiculos(String placa, Proprietario cpfProprietario, Modelo idModelo, String uf) {
 		this.placa = placa;
-		this.cpfProprietario = cpfProprietario;
-		this.idModelo = idModelo;
+		this.proprietario = cpfProprietario;
+		this.modelo = idModelo;
 		this.uf = uf;
 	}
 
@@ -45,22 +53,23 @@ public class Veiculos implements Serializable {
 		this.placa = placa;
 	}
 
-	@Column(name = "cpfProprietario", nullable = false)
-	public int getCpfProprietario() {
-		return this.cpfProprietario;
+
+	public Proprietario getProprietario() {
+		return proprietario;
 	}
 
-	public void setCpfProprietario(int cpfProprietario) {
-		this.cpfProprietario = cpfProprietario;
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
 	}
 
-	@Column(name = "idModelo", nullable = false)
-	public int getIdModelo() {
-		return this.idModelo;
+	
+
+	public Modelo getModelo() {
+		return modelo;
 	}
 
-	public void setIdModelo(int idModelo) {
-		this.idModelo = idModelo;
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
 	}
 
 	@Column(name = "uf", nullable = false, length = 2)
