@@ -1,13 +1,15 @@
 <div class="row">
-	<h2>Cadastro de A</h2>
+	<h2>Cadastro de Agente</h2>
 </div>
 <div class="row">
 <form class="form-horizontal" ng-submit="cadastrar(agente)">
 	<div class="form-group">
 		<input type="text" ng-model="agente.nome" class="form-control" placeholder="Nome">
-		<input type="text" ng-model="agente.dtContratacao" class="form-control" placeholder="Data de Contratacao">
+		<input type="date" ng-model="agente.dtContratacao" class="form-control" placeholder="Data de Contratacao">
 		<input type="text" ng-model="agente.tempoServico" class="form-control" placeholder="Tempo de Servico">
+		
 	</div>
+	
 	<div class="form-group">
 		<button class="btn btn-success">Cadastrar</button>
 		<a href="#/" class="btn btn-warning">Cancelar</a>

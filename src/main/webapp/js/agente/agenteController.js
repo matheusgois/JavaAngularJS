@@ -13,11 +13,19 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 	});
 	$scope.agenteEditar = EnvioService.getParametro();
 	
-	$scope.deletar = function(id){
-		AgenteService.delete(id).then(function(data){
-			console.log(data);
-			$route.reload();
-		});	
+	$scope.remove = function(deletarId, index){
+		console.log('deletando');
+		/*
+		$http.get("AgenteService" + deletarId)
+        .success(function(data){
+            $scope.data.splice(index, 1);
+        })*/
+		
+		
+		//AgenteService.delete(id).then(function(data){
+		//	console.log(data);
+			//$route.reload();
+	//	});	
 	}
 	
 	$scope.editar = function(item){
@@ -26,10 +34,29 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 		$location.path('/editarAgente');
 	}
 
-	$scope.atualizar = function(item){
-		AgenteService.update(item, item.idAgente).then(function(data){
+	$scope.atualizar = function(agenteEditar){
+		console.log("Ta chegando aqui brother")
+		var data = {
+			nome: agenteEditar.nome,
+			dtContratacao: agenteEditar.dtContratacao,
+			tempoServico: agenteEditar.tempoServico
+		};
+		AgenteService.update(agente).then(function(data){
 				$location.path('/');
 			});
+	}
+	
+	$scope.cadastrar = function(agente){
+		console.log("CHEAASDASD");
+		var data = {
+			nome: agente.nome,
+			dtContratacao: agente.dtContratacao,
+			tempoServico: agente.tempoServico
+		};
+
+		AgenteService.create(data).then(function(data){
+			$location.path('/');
+		});
 	}
 	
 });

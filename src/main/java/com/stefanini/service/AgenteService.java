@@ -24,5 +24,11 @@ public class AgenteService {
 	public List<Agente> listarAgente() {
 		return agenteRepository.lista();
 	}
+	
+	public void atualizar(Agente agente){
+		agenteRepository.altera(agente);
+	}
+	
+	
 
 }

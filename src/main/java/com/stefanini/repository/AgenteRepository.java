@@ -28,5 +28,10 @@ public class AgenteRepository {
 		return this.manager.createQuery("select a from Agente a", Agente.class)
 				.getResultList();
 	}
+	
+	public void remove(Agente agente){
+		System.out.println("Deletando repository");
+		//this.manager.createQuery("delete a from Agente", Agente;
+	}
 
 }

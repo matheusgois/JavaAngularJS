@@ -1,7 +1,7 @@
 var App = angular.module('services', []);
 
 App.service('EnvioService', function($http){
-	var parametro = [];
+	var parametro = {};
 
 	  var addParametro = function(newObj) {
 		  parametro = newObj;

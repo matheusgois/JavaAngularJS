@@ -12,8 +12,8 @@ App.controller('ReadCtrl', function($scope, Tipo, $route){
 		console.log("data", data);
 	});
 
-	$scope.deletar = function(id){
-		Tipo.delete(id).then(function(data){
+	$scope.remove = function(id){
+		Tipo.remove(id).then(function(data){
 			console.log(data);
 			$route.reload();
 		});	
