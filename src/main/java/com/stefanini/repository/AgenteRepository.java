@@ -41,5 +41,10 @@ public class AgenteRepository {
 			this.manager.persist(agente);
 		}
 	}
+	
+	public void Excluir(Integer id){
+		Agente a = busca(id);
+		manager.remove(a);
+	}
 
 }

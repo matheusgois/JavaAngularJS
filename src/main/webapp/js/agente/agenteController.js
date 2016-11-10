@@ -13,19 +13,11 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 	});
 	$scope.agenteEditar = EnvioService.getParametro();
 	
-	$scope.remove = function(deletarId, index){
-		console.log('deletando');
-		/*
-		$http.get("AgenteService" + deletarId)
-        .success(function(data){
-            $scope.data.splice(index, 1);
-        })*/
-		
-		
-		//AgenteService.delete(id).then(function(data){
-		//	console.log(data);
-			//$route.reload();
-	//	});	
+	$scope.deletar = function(id){
+		AgenteService.remover(id).then(function(id) {
+			$route.reload();
+			
+		})
 	}
 	
 	$scope.editar = function(item){
