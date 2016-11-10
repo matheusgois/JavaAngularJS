@@ -1,10 +1,10 @@
 <div class="col-md-12">
 <div class="row">
-	<h2 class="text-center"><u>Lista de Agentes Cadastrados</u></h2>
+	<h2 class="text-center"><u>Lista de Infracoes Cadastradas</u></h2>
 </div>
 <div class="row">
-<a href="#/create" class="btn btn-primary">Cadastrar</a>
-<a href="#/infracoes" class="btn btn-primary">Infracoes</a>
+<a href="#/infracoes" class="btn btn-primary">Cadastrar Infracao</a>
+
 </div>
 <br/>
 <div class="row">
@@ -13,8 +13,9 @@
 		<tr>
 			<td>ID</td>
 			<td>Nome</td>
-			<td>Data Contratacao</td>
-			<td>Tempo de Servico</td>
+			<td>Data da Infracao</td>
+			<td>Local</td>
+			<td>Veiculo</td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -24,6 +25,7 @@
 		<td>{{item.idAgente}}</td>
 		<td>{{item.nome}}</td>
 		<td>{{item.dtContratacao}}</td>
+		<td>{{item.tempoServico}}</td>
 		<td>{{item.tempoServico}}</td>
 		<!-- <td><a href="#/editarAgente/{{item.idAgente}}" class="btn btn-info btn-block">Editar</a></td> -->
 		<td><button ng-click="editar(item)" class="btn btn-info btn-block">Editar</button></td>
