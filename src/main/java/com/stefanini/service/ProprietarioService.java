@@ -41,18 +41,17 @@ public class ProprietarioService {
     
  
 
-<<<<<<< HEAD
-	public void setTelefone(TelefonesId telefone) {
-		this.telefone = telefone;
-	}
+
+//	public void setTelefone(TelefonesId telefone) {
+//		this.telefone = telefone;
+//	}
     
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Proprietario> listarProprietario() {
 		return proprietarioRepository.lista();
 	}
 	
-=======
->>>>>>> 5604ac04b950df99e9e17141b5917a5b79276240
+
     
     
 }
