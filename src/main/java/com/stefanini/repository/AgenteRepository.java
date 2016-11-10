@@ -12,9 +12,9 @@ public class AgenteRepository {
 	@Inject
 	private EntityManager manager;
 
-	public void incluirAgente(Agente agente) {
+	/*public void incluirAgente(Agente agente) {
 		this.manager.persist(agente);
-	}
+	}*/
 
 	public void altera(Agente agente) {
 		this.manager.merge(agente);
@@ -32,6 +32,14 @@ public class AgenteRepository {
 	public void remove(Agente agente){
 		System.out.println("Deletando repository");
 		//this.manager.createQuery("delete a from Agente", Agente;
+	}
+	
+	public void salva(Agente agente) {
+		if (agente.getIdAgente() != null) {
+			this.manager.merge(agente);
+		} else {
+			this.manager.persist(agente);
+		}
 	}
 
 }

@@ -16,9 +16,14 @@ public class AgenteService {
 	@Inject
 	private AgenteRepository agenteRepository;
 
-	public void incluir(Agente agente) {
-		agenteRepository.incluirAgente(agente);
+	/*public void incluir(Agente agente) {
+		agenteRepository.salva(agente);
+	}*/
+	
+	public void salva(Agente agente) {
+		agenteRepository.salva(agente);
 	}
+	
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Agente> listarAgente() {

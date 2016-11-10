@@ -7,7 +7,7 @@ App.factory('AgenteService', function($http, API){
 			return $http.post(API+'agente', item);
 		},
 		update: function(item){
-			return $http.put(API+'agente/', item);	
+			return $http.put(API+'agente', item);	
 		},
 		remove: function(id){
 			return $http.remove(API+'agente/'+id);

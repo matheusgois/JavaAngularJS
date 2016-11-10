@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.stefanini.model.Agente;
 import com.stefanini.model.Denuncia;
 
 public class DenuncianteRepository {
@@ -27,6 +28,14 @@ public class DenuncianteRepository {
 	public List<Denuncia> lista() {
 		return this.manager.createQuery("select c from denuncia c", Denuncia.class)
 				.getResultList();
+	}
+	
+	public void salva(Agente agente) {
+		if (agente.getIdAgente() != null) {
+			this.manager.merge(agente);
+		} else {
+			this.manager.persist(agente);
+		}
 	}
 }
 

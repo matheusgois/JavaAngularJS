@@ -18,34 +18,33 @@ import com.stefanini.service.AgenteService;
 @Path("/agente")
 @RequestScoped
 public class AgenteController {
-	
-		@Inject
-		private AgenteService agenteService;
-		//private Agente agente;
-	
-		
-		
-	 	@GET
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public List<Agente> get() {
-		 return agenteService.listarAgente();
-	    }
-	 	
-	 	@POST
-	 	@Consumes(MediaType.APPLICATION_JSON)
-	 	@Produces(MediaType.APPLICATION_JSON)
-	 	public void cadastrar(Agente a){
-	 		
-	 		System.out.println("chegando no agentecontroller ");
-	 		agenteService.incluir(a);
-	 	}
-	 	
-	 	@PUT
-	 	@Consumes(MediaType.APPLICATION_JSON)
-	 	@Produces(MediaType.APPLICATION_JSON)
-	 	public void update(Agente a){
-	 		System.out.println("chegando e tentando atualizar");
-	 		agenteService.atualizar(a);
-	 	}
+
+	@Inject
+	private AgenteService agenteService;
+	// private Agente agente;
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Agente> get() {
+		return agenteService.listarAgente();
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void cadastrar(Agente a) {
+
+		System.out.println("chegando no agentecontroller ");
+		agenteService.incluir(a);
+	}
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void alterar(Agente a) {
+
+		System.out.println("alterando ");
+		agenteService.salva(a);
+	}
 
 }

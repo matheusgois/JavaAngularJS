@@ -34,17 +34,14 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 		$location.path('/editarAgente');
 	}
 
-	$scope.atualizar = function(agenteEditar){
+	/*$scope.create = function(agenteEditar){
 		console.log("Ta chegando aqui brother")
-		var data = {
-			nome: agenteEditar.nome,
-			dtContratacao: agenteEditar.dtContratacao,
-			tempoServico: agenteEditar.tempoServico
-		};
-		AgenteService.update(agente).then(function(data){
+		
+		AgenteService.salvar(agente).then(function(data){
 				$location.path('/');
 			});
-	}
+	}*/
+	
 	
 	$scope.cadastrar = function(agente){
 		console.log("CHEAASDASD");
@@ -57,6 +54,12 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 		AgenteService.create(data).then(function(data){
 			$location.path('/');
 		});
+	}
+	
+	$scope.atualizar = function(agente){
+		AgenteService.update(agente).then(function(data){
+				$location.path('/');
+			});
 	}
 	
 });
