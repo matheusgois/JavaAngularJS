@@ -21,12 +21,12 @@ public class InfracoesRepository {
 		this.manager.merge(infracoes);
 	}
 
-	public Agente busca(Integer id) {
-		return this.manager.find(Agente.class, id);
+	public Infracoes busca(Integer id) {
+		return this.manager.find(Infracoes.class, id);
 	}
 
 	public List<Infracoes> lista() {
-		return this.manager.createQuery("select a from Agente a", Infracoes.class)
+		return this.manager.createQuery("select i from Infracoes i", Infracoes.class)
 				.getResultList();
 	}
 

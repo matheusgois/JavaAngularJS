@@ -20,12 +20,12 @@ public class ProprietarioRepository {
 		this.manager.merge(propietario);
 	}
 
-	public Agente busca(Integer id) {
-		return this.manager.find(Agente.class, id);
+	public Proprietario busca(Integer id) {
+		return this.manager.find(Proprietario.class, id);
 	}
 
 	public List<Proprietario> lista() {
-		return this.manager.createQuery("from propietario", Proprietario.class)
+		return this.manager.createQuery("select p from Proprietario p", Proprietario.class)
 				.getResultList();
 	}
 
