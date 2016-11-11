@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import com.stefanini.model.Proprietario;
 import com.stefanini.service.ProprietarioService;
 
-@Path("/propri")
+@Path("/Proprietario")
 @RequestScoped
 public class ProprietarioController {
 	

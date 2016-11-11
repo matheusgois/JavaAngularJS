@@ -5,23 +5,18 @@
 <div class="row">
 
 <a href="#/cadpropri" class="btn btn-primary">Cadastrar propietario</a>
+<a href="#/" class="btn btn-primary">Voltar</a>
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<td>ID</td>
-			<td>Nome</td>
-			<td>Data Contratacao</td>
-			<td>Tempo de Servico</td>
 			<td></td>
 			<td></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in propietario">
-		<td>{{item}}</td>
-		<td>{{item}}</td>
-		<td>{{item}}</td>
-		<td>{{item}}</td>
+		<td>{{item.cpfProprietario}}</td>
 		<!-- <td><a href="#/editarAgente/{{item.idAgente}}" class="btn btn-info btn-block">Editar</a></td> -->
 		<td><button ng-click="editar(item)" class="btn btn-info btn-block">Editar</button></td>
 		<td><button ng-click="deletar(item.idAgente)" class="btn btn-danger btn-block">Deletar</button></td>

@@ -49,6 +49,7 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 		});
 	}
 	
+	
 	$scope.atualizar = function(agente){
 		AgenteService.update(agente).then(function(data){
 				$location.path('/');

@@ -34,10 +34,9 @@ public class AgenteController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void cadastrar(Agente a) {
+	public void cadastrar(Agente agente) {
 
-		System.out.println("chegando no agentecontroller ");
-		agenteService.incluir(a);
+		agenteService.salva(agente);
 	}
 
 	@PUT

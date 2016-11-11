@@ -4,29 +4,48 @@
 
 <div class="row">
 
-<div ng-controller="AgenteCtrl" >
-	<select>
-	<option value="" selected="false">---Escolha um agente---</option>
-	 <option ng-repeat="item in agente"  >{{item.nome}}</option>
-	</select>
-</div>
+	<div ng-controller="AgenteCtrl">
+		<select>
+			<option value="" selected="false">Nome Agente</option>
+			<option ng-repeat="item in agente">{{item.nome}}</option>
+		</select>
+	</div>
+	<div ng-controller="AgenteCtrl">
+		<label>Agente</label> <select class="form-control"
+			ng-options="item as item.id for item in agente" ng-model="agente"></select>
+	</div>
+	<div ng-controller="PropriCtrl">
+		<select>
+			<option value="" selected="false">Proprietario</option>
+			<option ng-repeat="item in proprietario">{{item.cpfProprietario}}</option>
+		</select>
+	</div>
+	</br>
+	<div ng-controller="InfraCtrl">
+		<form class="form-horizontal" ng-submit="cadastrarInfracao(infracao)">
+			<input type="text" ng-model="infracao.idlocal" class="form-control"
+				placeholder="Id local Infracao"> <input type="text"
+				ng-model="infracao.idtipo" class="form-control"
+				placeholder="Id local Tipo Infracao"> <input type="text"
+				ng-model="infracao.placa" class="form-control" placeholder="placa">
+			<input type="text" ng-model="infracao.velocidade"
+				class="form-control" placeholder="Velocidade">
+			<div class="form-group">
+				<button class="btn btn-success">Cadastrar</button>
+				<a href="#/" class="btn btn-warning">Cancelar</a> <a href="#/"
+					class="btn btn-primary">voltar</a>
+			</div>
+	</div>
+	</form>
+	<div>
+		<h2>Localizacao</h2>
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18256.35313798176!2d-48.036204437824246!3d-15.860513635066173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1478866040123"
+			width="600" height="450" frameborder="0" style="border: 0"
+			allowfullscreen></iframe>
+	</div>
+	<ng-map on-click="getpos($event)"> <marker
+		ng-repeat="p in positions" position="{{p}}"
+		on-dragend="getpos($event)"> </marker> </ng-map>
 
-<div ng-controller="InfraCtrl">
-<form class="form-horizontal" ng-submit="cadastrarInfracao(infracao)" >
-    <input type="text" ng-model="infracao.idlocal" class="form-control" placeholder="Id local Infracao">
-    <input type="text" ng-model="infracao.idtipo" class="form-control" placeholder="Id local Tipo Infracao">
-    <input type="text" ng-model="infracao.placa" class="form-control" placeholder="placa">
-    <input type="text" ng-model="infracao.velocidade" class="form-control" placeholder="Velocidade">
-   	<div class="form-group">
-		<button class="btn btn-success"   >Cadastrar</button>
-		<a href="#/" class="btn btn-warning">Cancelar</a>
-		<a href="#/" class="btn btn-primary">voltar</a>
-	</div>		
-   </div>
-   </form>
-   <div>
-    <h2>Localizacao</h2> 
-   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18256.35313798176!2d-48.036204437824246!3d-15.860513635066173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1478866040123" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-   </div>
-   
 </div>

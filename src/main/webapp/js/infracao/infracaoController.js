@@ -4,10 +4,10 @@ App.controller('InfraCtrl', function($scope, InfracaoService, $route,$routeParam
 
 	$scope.notFound = false;
 	InfracaoService.list().then(function(data){
-		console.log("Ta chegando aqui man")
 		$scope.infracao = data.data;
 		console.log("Ta chegando ao infracao")
 		if(data.data.length == 0){
+			console.log("nao veio")
 			$scope.notFound = true;
 		}
 	},function(data){
@@ -37,6 +37,8 @@ App.controller('InfraCtrl', function($scope, InfracaoService, $route,$routeParam
 			idtipo:  infracao.idtipo,
 			placa:   infracao.placa,
 			velocidade:infracao.velocidade
+			
+			
 		};
 
 		InfracaoService.create(data).then(function(data){
@@ -49,5 +51,14 @@ App.controller('InfraCtrl', function($scope, InfracaoService, $route,$routeParam
 				$location.path('/');
 			});
 	}
+	
+	
+	function searchTextChange(text) {
+		$scope.goal.name = text;
+	    }
+
+	    function selectedItemChange(item) {
+	    	$scope.goal.name = item.name;
+	    }
 	
 });

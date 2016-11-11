@@ -1,42 +1,48 @@
 <div class="col-md-12">
-<div class="row">
-	<h2 class="text-center"><u>Lista de infracaos Cadastrados</u></h2>
-</div>
-<div class="row">
-<a href="#/cadinfracao" class="btn btn-primary">Cadastrar nova Infracao</a>
-<a href="#/Infracoes" class="btn btn-primary">Infracoes</a>
-<a href="#/" class="btn btn-primary">voltar</a>
+	<div class="row">
+		<h2 class="text-center">
+			<u>Lista de infracaos Cadastrados</u>
+		</h2>
+	</div>
+	<div class="row">
+		<a href="#/cadinfracao" class="btn btn-primary">Cadastrar nova
+			Infracao</a> <a href="#/" class="btn btn-primary">voltar</a>
 
 
-</div>
-<br/>
+	</div>
+	<br />
 
+	<div class="row">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Nome do Agente</td>
+					<td>Local da Infracao</td>
+					<td>Tipo de Infracao</td>
+					<td>Placa</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in infracao">
+					<td>{{item.idInfracao}}</td>
+					<td>{{item.agente.nome}}</td>
+					<td>{{item.localInfracao.descricaoLocalInfracao}}</td>
+					<td>{{item.tipoInfracao.descricaoTipoInfracao}}</td>
+					<td>{{item.placaVeic.placa}}</td>
+					<!-- <td><a href="#/editarinfracao/{{item.idinfracao}}" class="btn btn-info btn-block">Editar</a></td> -->
+					<td><button ng-click="editar(item)"
+							class="btn btn-info btn-block">Editar</button></td>
+					<td><button ng-click="deletar(item.idinfracao)"
+							class="btn btn-danger btn-block">Deletar</button></td>
+				</tr>
+				<tr ng-show="notFound" class="text-center">
+					<td colspan="4">Nao tem registros</td>
+				</tr>
+			</tbody>
+		</table>
 
-<div class="row">
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<td>ID</td>
-			<td>Nome do Agente</td>
-			<td>Local da Infracao</td>
-			<td></td>
-			<td></td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr  >
-		<td>{{item.idInfracao}}</td>
-		<td> {{item.agente.nome}} </td>
-		<td>{{item.localInfracao.descricaoLocalInfracao}}</td>
-		<!-- <td><a href="#/editarinfracao/{{item.idinfracao}}" class="btn btn-info btn-block">Editar</a></td> -->
-		<td><button ng-click="editar(item)" class="btn btn-info btn-block">Editar</button></td>
-		<td><button ng-click="deletar(item.idinfracao)" class="btn btn-danger btn-block">Deletar</button></td>
-		</tr>
-		<tr ng-show="notFound" class="text-center">
-			<td colspan="4">Não tem registros</td>
-		</tr>
-	</tbody>
-</table>
-	
-</div>
+	</div>
 </div>

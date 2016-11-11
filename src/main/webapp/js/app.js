@@ -25,31 +25,26 @@ App.config(function($routeProvider) {
 	.when('/cadinfracao', {
 		templateUrl : 'views/infracoes/cadastroInfracao.html',
 		controller : 'InfraCtrl'//,
-		//controller : 'AgenteCtrl'
 	})
 
 	   .when('/veiculos', {
 		templateUrl : 'views/Veiculos/veiculos.html',
 		controller : 'VeiculosCtrl'//,
-		//controller : 'AgenteCtrl'
 	})
 		.when('/cadveiculos', {
 		templateUrl : 'views/Veiculos/cadastroVeiculos.html',
 		controller : 'VeiculosCtrl'//,
-		//controller : 'AgenteCtrl'
 	})
 	
 	
 	   .when('/propri', {
 		templateUrl : 'views/proprietario/proprietario.html',
 		controller : 'PropriCtrl'//,
-		//controller : 'AgenteCtrl'
 	})
 	
 		.when('/cadpropri', {
 		templateUrl : 'views/proprietario/cadastroproprietario.html',
 		controller : 'PropriCtrl'//,
-		//controller : 'AgenteCtrl'
 	})
 	
 

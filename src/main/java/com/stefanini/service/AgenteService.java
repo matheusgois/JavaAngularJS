@@ -16,9 +16,6 @@ public class AgenteService {
 	@Inject
 	private AgenteRepository agenteRepository;
 
-	public void incluir(Agente agente) {
-		agenteRepository.salva(agente);
-	}
 	
 	public void salva(Agente agente) {
 		agenteRepository.salva(agente);

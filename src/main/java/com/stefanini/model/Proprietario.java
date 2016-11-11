@@ -25,7 +25,6 @@ public class Proprietario implements Serializable {
 	
 	@Id
 	@Column(name = "cpfProprietario", unique = true, nullable = false)
-	
 	private Integer cpfProprietario;
 	
 	private String nome;

@@ -1,9 +1,10 @@
-App.controller('PropriCtrl', function($scope, proprietarioService, $route,$routeParams,$location,EnvioService){
+App.controller('PropriCtrl', function($scope, ProprietarioService, $route,$routeParams,$location,EnvioService){
 	$scope.proprietario = [];
 	$scope.proprietarioEditar = {};
 
 	$scope.notFound = false;
-	proprietarioService.list().then(function(data){
+	ProprietarioService.list().then(function(data){
+		
 		$scope.proprietario = data.data;
 		if(data.data.length == 0){
 			$scope.notFound = true;
@@ -14,7 +15,7 @@ App.controller('PropriCtrl', function($scope, proprietarioService, $route,$route
 	$scope.proprietarioEditar = EnvioService.getParametro();
 	
 	$scope.deletar = function(id){
-		proprietarioService.remover(id).then(function(id) {
+		ProprietarioService.remover(id).then(function(id) {
 			$route.reload();
 			
 		})
@@ -23,34 +24,32 @@ App.controller('PropriCtrl', function($scope, proprietarioService, $route,$route
 	$scope.editar = function(item){
 		$scope.proprietarioEditar = {};
 		EnvioService.addParametro(item);
-		$location.path('/editarproprietario');
+		$location.path('/editarProprietario');
 	}
 
-	/*$scope.create = function(proprietarioEditar){
+	/*$scope.create = function(agenteEditar){
 		console.log("Ta chegando aqui brother")
 		
-		proprietarioService.salvar(proprietario).then(function(data){
+		AgenteService.salvar(agente).then(function(data){
 				$location.path('/');
 			});
 	}*/
 	
 	
-	$scope.cadastrarproprietario = function(proprietario){
-		console.log(proprietario);
+	$scope.cadastrar = function(proprietario){
+		console.log("CHEAASDASD");
 		var data = {
-			idlocal: proprietario.idlocal,
-			idtipo:  proprietario.idtipo,
-			placa:   proprietario.placa,
-			velocidade:proprietario.velocidade
+			nome: proprietario.nome,
 		};
 
-		proprietarioService.create(data).then(function(data){
+		ProprietarioService.create(data).then(function(data){
 			$location.path('/');
 		});
 	}
 	
+	
 	$scope.atualizar = function(proprietario){
-		proprietarioService.update(proprietario).then(function(data){
+		ProprietarioService.update(proprietario).then(function(data){
 				$location.path('/');
 			});
 	}
