@@ -23,7 +23,19 @@ public class InfracoesService {
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Infracoes> listarInfracoes() {
-		return infracoesRepository.lista();
+		
+		List<Infracoes> lista = infracoesRepository.lista();
+		return lista;
+	}
+
+	public void salva(Infracoes a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void excluir(Integer id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

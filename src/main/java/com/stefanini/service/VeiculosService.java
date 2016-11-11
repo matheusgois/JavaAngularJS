@@ -25,5 +25,10 @@ public class VeiculosService {
 		return veiculosRepository.lista();
 	}
 
+	public void salva(Veiculos a) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

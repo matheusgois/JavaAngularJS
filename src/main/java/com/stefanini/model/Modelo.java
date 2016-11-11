@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,18 +25,14 @@ public class Modelo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	private Integer idModelo;
 	
-	@OneToOne
-	@JoinColumn(name = "categoria")
+	@ManyToOne
 	private Categoria categoria;
 	
 	private String descricaoModelo;
-
-	public Modelo() {
-	}
-
-	
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -49,10 +46,6 @@ public class Modelo implements Serializable {
 
 
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idModelo", unique = true, nullable = false)
 	public Integer getIdModelo() {
 		return this.idModelo;
 	}

@@ -1,39 +1,47 @@
 <div class="col-md-12">
-<div class="row">
-	<h2 class="text-center"><u>Lista de Agentes Cadastrados</u></h2>
+	<div class="row">
+		<h2 class="text-center">
+			<u>Lista de Agentes Cadastrados</u>
+		</h2>
+	</div>
+	<div class="row">
+		<a href="#/create" class="btn btn-primary">Cadastrar Agente</a> <a
+			href="#/infracao" class="btn btn-primary">Cadastrar Infracoes</a> <a
+			href="#/veiculos" class="btn btn-primary">Cadastrar Veiculos</a> <a
+			href="#/propri" class="btn btn-primary">Cadastrar proprietario</a>
+	</div>
+</br>
 </div>
+<br />
 <div class="row">
-<a href="#/create" class="btn btn-primary">Cadastrar</a>
-<a href="#/infracoes" class="btn btn-primary">Infracoes</a>
-</div>
-<br/>
-<div class="row">
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<td>ID</td>
-			<td>Nome</td>
-			<td>Data Contratacao</td>
-			<td>Tempo de Servico</td>
-			<td></td>
-			<td></td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="item in agente">
-		<td>{{item.idAgente}}</td>
-		<td>{{item.nome}}</td>
-		<td>{{item.dtContratacao}}</td>
-		<td>{{item.tempoServico}}</td>
-		<!-- <td><a href="#/editarAgente/{{item.idAgente}}" class="btn btn-info btn-block">Editar</a></td> -->
-		<td><button ng-click="editar(item)" class="btn btn-info btn-block">Editar</button></td>
-		<td><button ng-click="deletar(item.idAgente)" class="btn btn-danger btn-block">Deletar</button></td>
-		</tr>
-		<tr ng-show="notFound" class="text-center">
-			<td colspan="4">Não tem registros</td>
-		</tr>
-	</tbody>
-</table>
-	
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Nome</td>
+				<td>Data Contratacao</td>
+				<td>Tempo de Servico</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in agente">
+				<td>{{item.idAgente}}</td>
+				<td>{{item.nome}}</td>
+				<td>{{item.dtContratacao}}</td>
+				<td>{{item.tempoServico}}</td>
+				<!-- <td><a href="#/editarAgente/{{item.idAgente}}" class="btn btn-info btn-block">Editar</a></td> -->
+				<td><button ng-click="editar(item)"
+						class="btn btn-info btn-block">Editar</button></td>
+				<td><button ng-click="deletar(item.idAgente)"
+						class="btn btn-danger btn-block">Deletar</button></td>
+			</tr>
+			<tr ng-show="notFound" class="text-center">
+				<td colspan="4">Não tem registros</td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
 </div>

@@ -4,6 +4,7 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 
 	$scope.notFound = false;
 	AgenteService.list().then(function(data){
+		
 		$scope.agente = data.data;
 		if(data.data.length == 0){
 			$scope.notFound = true;

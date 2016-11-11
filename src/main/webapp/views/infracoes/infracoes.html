@@ -1,36 +1,36 @@
 <div class="col-md-12">
 <div class="row">
-	<h2 class="text-center"><u>Lista de Infracoes Cadastradas</u></h2>
+	<h2 class="text-center"><u>Lista de infracaos Cadastrados</u></h2>
 </div>
 <div class="row">
-<a href="#/infracoes" class="btn btn-primary">Cadastrar Infracao</a>
+<a href="#/cadinfracao" class="btn btn-primary">Cadastrar nova Infracao</a>
+<a href="#/Infracoes" class="btn btn-primary">Infracoes</a>
+<a href="#/" class="btn btn-primary">voltar</a>
+
 
 </div>
 <br/>
+
+
 <div class="row">
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<td>ID</td>
-			<td>Agente</td>
-			<td>Local Infracao</td>
-			<td>Tipo Infracao</td>
-			<td>Placa</td>
-			<td>Velocidade</td>
+			<td>Nome do Agente</td>
+			<td>Local da Infracao</td>
 			<td></td>
 			<td></td>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="item in infracao">
+		<tr  >
 		<td>{{item.idInfracao}}</td>
-		<td>{{item.agente.nome}}</td>
-		<td>{{item.local.descricaoLocalinfracao}}</td>
-		<td>{{item.veiculos.placa}}</td>
-		<td>{{item.velocidade}}</td>
-		<!-- <td><a href="#/editarAgente/{{item.idAgente}}" class="btn btn-info btn-block">Editar</a></td> -->
+		<td> {{item.agente.nome}} </td>
+		<td>{{item.localInfracao.descricaoLocalInfracao}}</td>
+		<!-- <td><a href="#/editarinfracao/{{item.idinfracao}}" class="btn btn-info btn-block">Editar</a></td> -->
 		<td><button ng-click="editar(item)" class="btn btn-info btn-block">Editar</button></td>
-		<td><button ng-click="deletar(item.idAgente)" class="btn btn-danger btn-block">Deletar</button></td>
+		<td><button ng-click="deletar(item.idinfracao)" class="btn btn-danger btn-block">Deletar</button></td>
 		</tr>
 		<tr ng-show="notFound" class="text-center">
 			<td colspan="4">Não tem registros</td>
