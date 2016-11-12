@@ -17,25 +17,22 @@ public class InfracoesService {
 	private InfracoesRepository infracoesRepository;
 	
 	
-	public void incluir(Infracoes infracoes) {
-		infracoesRepository.incluirInfracoes(infracoes);
+	public void salvar(Infracoes infracoes) {
+		infracoesRepository.salvar(infracoes);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Infracoes> listarInfracoes() {
-		
-		List<Infracoes> lista = infracoesRepository.lista();
-		return lista;
+		return infracoesRepository.lista();
 	}
 
-	public void salva(Infracoes a) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void excluir(Integer id) {
-		// TODO Auto-generated method stub
-		
+		infracoesRepository.Excluir(id);
+	}
+	
+	public void buscarInfracao(Integer id){
+		infracoesRepository.busca(id);
 	}
 	
 }

@@ -7,12 +7,8 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.stefanini.model.Agente;
 import com.stefanini.model.Proprietario;
-import com.stefanini.model.Telefones;
-import com.stefanini.model.Tipotelefone;
 import com.stefanini.repository.ProprietarioRepository;
-import com.stefanini.repository.TipoTelefonesRepository;
 
 @Stateless
 public class ProprietarioService {
@@ -20,38 +16,20 @@ public class ProprietarioService {
 	@Inject
 	private ProprietarioRepository proprietarioRepository;
 	
-	@Inject
-	private TipoTelefonesRepository tipoTelefonesRepository;
-	
-    public void incluir(Proprietario propietario, Telefones telefones){
-    	proprietarioRepository.incluirPropietario(propietario);
-    	
+    public void salvar(Proprietario propietario){
+    	proprietarioRepository.salvar(propietario);
     }
-    
-    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-    public List<Tipotelefone> buscarTelefones()
-    {
-    	return tipoTelefonesRepository.listar();
- 
-    }
-    
-    public void cadastraTipo(Tipotelefone tipoTelefone){
-    	tipoTelefonesRepository.CadastraTipo(tipoTelefone);
-    }
-    
- 
-
-
-//	public void setTelefone(TelefonesId telefone) {
-//		this.telefone = telefone;
-//	}
     
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Proprietario> listarProprietario() {
 		return proprietarioRepository.lista();
 	}
 	
-
+	public void excluir(Integer id){
+		proprietarioRepository.Excluir(id);
+	}
     
-    
+    public Proprietario buscarProprietario(Integer id){
+    	return proprietarioRepository.busca(id);
+    }
 }

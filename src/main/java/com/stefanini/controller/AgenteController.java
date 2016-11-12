@@ -23,7 +23,6 @@ public class AgenteController {
 
 	@Inject
 	private AgenteService agenteService;
-	// private Agente agente;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -35,17 +34,14 @@ public class AgenteController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void cadastrar(Agente agente) {
-
 		agenteService.salva(agente);
 	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void alterar(Agente a) {
-
-		System.out.println("alterando ");
-		agenteService.salva(a);
+	public void alterar(Agente agente) {
+		agenteService.salva(agente);
 	}
 	
 	@DELETE

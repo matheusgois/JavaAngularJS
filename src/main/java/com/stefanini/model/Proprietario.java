@@ -3,10 +3,12 @@ package com.stefanini.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +28,9 @@ public class Proprietario implements Serializable {
 	@Id
 	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	private Integer cpfProprietario;
+	
+	@OneToMany(mappedBy="proprietario")
+	private List<Veiculos> veiculos;
 	
 	private String nome;
 	private String endereco;

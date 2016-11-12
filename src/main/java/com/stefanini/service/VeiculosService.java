@@ -12,12 +12,12 @@ import com.stefanini.repository.VeiculosRepository;
 
 @Stateless
 public class VeiculosService {
-	
+
 	@Inject
 	private VeiculosRepository veiculosRepository;
 
-	public void incluir(Veiculos veiculos) {
-		veiculosRepository.incluirAgente(veiculos);
+	public void salvar(Veiculos veiculos) {
+		veiculosRepository.salvar(veiculos);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -25,10 +25,12 @@ public class VeiculosService {
 		return veiculosRepository.lista();
 	}
 
-	public void salva(Veiculos a) {
-		// TODO Auto-generated method stub
-		
+	public void excluir(Integer id) {
+		veiculosRepository.Excluir(id);
 	}
 
+	public Veiculos buscarVeiculo(Integer id) {
+		return veiculosRepository.busca(id);
+	}
 
 }

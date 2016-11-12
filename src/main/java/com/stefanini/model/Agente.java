@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,8 +39,11 @@ public class Agente implements  Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "dtContratacao", length = 10)
-	
 	private Date dtContratacao;
+	
+	@OneToMany(mappedBy="agente")
+	private List<Infracoes> infracoes;
+	
 	private Integer tempoServico;
 	
 	public Agente() {

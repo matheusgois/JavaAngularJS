@@ -21,14 +21,13 @@ public class AgenteService {
 		agenteRepository.salva(agente);
 	}
 	
+	public Agente buscarAgente(Integer id){
+		return agenteRepository.busca(id);
+	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public List<Agente> listarAgente() {
 		return agenteRepository.lista();
-	}
-	
-	public void atualizar(Agente agente){
-		agenteRepository.altera(agente);
 	}
 	
 	public void excluir(Integer i){

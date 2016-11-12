@@ -23,7 +23,6 @@ public class InfracaoController {
 
 	@Inject
 	private InfracoesService infracoesService;
-	// private Infracao Infracao;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,28 +33,22 @@ public class InfracaoController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void cadastrar(Infracoes a) {
-
-		System.out.println("chegando no Infracaocontroller ");
-		infracoesService.incluir(a);
+	public void cadastrar(Infracoes infracoes) {
+		infracoesService.salvar(infracoes);
 	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void alterar(Infracoes a) {
-
-		System.out.println("alterando ");
-		infracoesService.salva(a);
+	public void alterar(Infracoes infracoes) {
+		infracoesService.salvar(infracoes);;
 	}
-	
+
 	@DELETE
 	@Path("/{id}")
-	public void excluir(@PathParam("id") Integer id){
+	public void excluir(@PathParam("id") Integer id) {
 		infracoesService.excluir(id);
-		
+
 	}
-	
-	
-	
+
 }

@@ -4,4 +4,7 @@
 
 <web-app>
   <display-name>Hackathon Java Angular</display-name>
+  
+  <welcome-file-list><welcome-file>agente.js</welcome-file></welcome-file-list>
 </web-app>
+

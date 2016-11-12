@@ -32,18 +32,12 @@ public class ProprietarioBean implements Serializable {
 
 	private Estados estados;
 
-	public List<Tipotelefone> listartipos() {
-		return proprietarioservice.buscarTelefones();
-	}
+
 
 	public Estados[] getStatuses() {
 		return Estados.values();
 	}
 
-	public void salvar() {
-      		
-		proprietarioservice.cadastraTipo(tpelefone);
-	}
 
 
 	public Agente getAgente() {

@@ -4,12 +4,14 @@ package com.stefanini.model;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -39,6 +41,9 @@ public class Veiculos implements Serializable {
 	
 	@Column(name = "uf", nullable = false, length = 2)
 	private String uf;
+	
+	@OneToMany(mappedBy="placaVeic")
+	private List<Infracoes> infracoes;
 
 	public Integer getIdVeiculo() {
 		return idVeiculo;
